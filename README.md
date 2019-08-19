@@ -8,8 +8,7 @@ This is a place where I want to try to code different encryption techniques. I'l
 ## Explanations
 
 ### Caesar cipher
-[Wikipedia](https://en.wikipedia.org/wiki/Caesar_cipher)
-
+[Wikipedia](https://en.wikipedia.org/wiki/Caesar_cipher) | 
 [Code](https://github.com/BoundlessCarrot/cryptography-stuff/blob/master/simple%20caesar%20cipher.py)
 
 The Caesar cipher is one of the oldest ciphers known to man, as well as one of the simplest and well known ciphers. It works by taking a key, that both the sender and the recipient know, and shifting each letter in your message by that key. This is known as a monoalphabetic substitution cipher.
@@ -30,7 +29,6 @@ The decryption function is simply a brute force decryption, as the number of pos
 As a note to come back to, it could be interesting to use the actual encryption function as the decryption function by giving it the encrypted text and cycling through all possible keys.
 
 ### Affine cipher
-[Wikipedia](https://en.wikipedia.org/wiki/Affine_cipher)
-
+[Wikipedia](https://en.wikipedia.org/wiki/Affine_cipher) | 
 [Code](https://github.com/BoundlessCarrot/cryptography-stuff/blob/master/affine%20cipher.py)
 Explanation coming soon!
