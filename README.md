@@ -16,7 +16,7 @@ So, as an example, say we have the word ```github``` as our plaintext, and our k
 Keep in mind that as a substituition cipher, and especially as a monoalphabetic substitution cipher, the encrypted message is vulnerable to cryptanalysis as well as frequency analysis, as the frequency of letters in the text doesn't change, it is just shifted by the key.
 
 The program I wrote takes a string for the message, as well as an integer the key. It then outputs an encrypted message by converting each letter to its ASCII value, adding the key, then converting back, all the while correcting for mistakes (A 'mistake' in this case would be an ASCII value over 122, which is z. In this case, the program finds the difference between the given encrypted ASCII value and 122, and just starts again from the beginning of the alphabet). 
-The decryption function is simply a brute force decryption, as the number of possibilities is relatively small. The program cycles through every possible key (1 - 26) and outputs what might be the plaintext for each related key. As a note to come back to, it could be interesting to use the actual encryption function as the decryption function by giving it the encryoted text and cycling through all possible keys.
+The decryption function is simply a brute force decryption, as the number of possibilities is relatively small. The program cycles through every possible key (1 - 26) and outputs what might be the plaintext for each related key. As a note to come back to, it could be interesting to use the actual encryption function as the decryption function by giving it the encrypted text and cycling through all possible keys.
 
 ### Affine cipher
 [Wikipedia](https://en.wikipedia.org/wiki/Affine_cipher)
