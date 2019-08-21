@@ -25,6 +25,7 @@ Keep in mind that as a substituition cipher, and especially as a monoalphabetic 
 The program I wrote takes a string for the message, as well as an integer the key. It then outputs an encrypted message by converting each letter to its ASCII value, adding the key, then converting back, all the while correcting for mistakes (A 'mistake' in this case would be an ASCII value over 122, which is z. In this case, the program finds the difference between the given encrypted ASCII value and 122, and just starts again from the beginning of the alphabet). For simplicity's sake, the program skips (and therefore keeps) punctuation and spaces as well as makes/outputs all letters in lowercase.
 
 Let's break that down as well, as it's a bit more of an involved process:
+
   1. Take a character from your message.
   2. If the charcater is part of the alphabet (i.e. not punctuation or a space), continue. Otherwise, skip to step 7.
   3. Get the encrypted value of the letter. This involves converting the letter to its ASCII value and adding the key to it.
