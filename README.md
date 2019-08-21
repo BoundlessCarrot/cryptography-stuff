@@ -31,11 +31,11 @@ Let's break that down as well, as it's a bit more of an involved process:
   3. Get the encrypted value of the letter. This involves converting the letter to its ASCII value and adding the key to it.
   4. If the encrypted value is less than 122, skip to step 6. Otherwise, continue.
   5. Calculate the offset. If we are at this step, it means that the encrypted value is greater than 122, which means we are substituting letters for punctuation and/or symbols, which we don't want to do. In this case, we:
-    - Take the difference between the encrypted value and the end of the alphabet in ASCII (encrypted value - 122)
-    - Add the offset to the beginning of the alphabet in ASCII (96 + offset)
-    - Convert your offset/encrypted value to a character and add the letter to the encrypted message.
-  6. Convert your encrypted value to a character
-  7. Add the character to the encrypted message
+      1. Take the difference between the encrypted value and the end of the alphabet in ASCII (encrypted value - 122)
+      2. Add the offset to the beginning of the alphabet in ASCII (96 + offset)
+      3. Convert your offset/encrypted value to a character and add the letter to the encrypted message.
+  6. Convert your encrypted value to a character.
+  7. Add the character to the encrypted message.
 
 The decryption function is simply a brute force decryption, as the number of possibilities is relatively small. The program cycles through every possible key (1 - 26) and outputs what might be the plaintext for each related key. 
 
