@@ -52,8 +52,8 @@ if __name__ == '__main__':
 	message = input("Type your message: ")
 	key = int(input("Pick a key (must be less than or equal to 26): "))
 	
-	if key > 27:
-		key = int(input("Key too large, pick a new key: "))
+	if key > 27 or key < 0:
+		key = int(input("Key is not valid, pick a new key: "))
 	
 	eMessage = caesar(key, message)
 	print("Encrypted message: " + str(eMessage))
