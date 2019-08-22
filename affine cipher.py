@@ -21,7 +21,7 @@ if __name__ == '__main__':
 	key1 = int(input("Pick your 1st key (must be less than or equal to 26, must be co-prime): "))
 	key2 = int(input("Pick your 2nd key (must be less than or equal to 26, must be co-prime): "))
 	
-	if coprime(key1, key2) != True:
+	while coprime(key1, key2) != True:
 		print("Those keys weren't co-prime. Try again!")
 		key1 = int(input("Pick your 1st key (must be less than or equal to 26, must be co-prime): "))
 		key2 = int(input("Pick your 2nd key (must be less than or equal to 26, must be co-prime): "))
