@@ -77,7 +77,7 @@ Let’s break that down:
 
 Again, as this is a monoalphabetic substitution cipher, it is very weak and is vulnerable to nearly all methods of forceful decryption such as frequency analysis, brute force, and even guessing. Mathematically, there are 12 numbers co-prime with 26 that are less than 26 (_a_ values) as well as 26 possible values for each value of _a_ (_b_ values). Therefore there are 312 `(12 * 26)` possible encryptions using the Affine cipher. However, this number also includes trivial solutions that the Caesar cipher could also produce (where `a = 1`). Without the trivial solutions, this number drops to 286 unique encryptions, which is very low and very vulnerable.
 
-My program takes 2 integers (the 2 keys) and a string (the message), checks if the keys are non-prime, and then encrypts using the encryption function after converting each letter to a number. It then converts each number to a character and adds it to an empty string initialized when we called the affine function. After converting the entire message it returns and prints the string.
+My program takes 2 integers (the 2 keys) and a string (the message), checks if the keys are non-prime, and then encrypts using the encryption function after converting each letter to a number. It then converts each number to a character and adds it to an empty string initialized when we called the affine function. After converting the entire message it returns and prints the string. Again, for simplicity’s sake, this program keeps spaces and punctuation.
 
 Let’s break that down, because, as always, the code is much more involved than the actual cipher:
 1. Get the message and the keys.
