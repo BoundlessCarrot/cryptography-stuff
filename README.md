@@ -40,6 +40,7 @@ Let's break that down as well, as it's a bit more of an involved process:
 The decryption function is simply a brute force decryption, as the number of possibilities is relatively small. The program cycles through every possible key (1 - 26) and outputs what might be the plaintext for each related key. 
 
 As a note to come back to, it could be interesting to use the actual encryption function as the decryption function by giving it the encrypted text and cycling through all possible keys. (This is kinda what the decryption function is already doing but within its own function)
+
 ---- 
 ### Affine cipher
 [Wikipedia][5] | 
