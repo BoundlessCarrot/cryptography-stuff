@@ -71,7 +71,7 @@ Let’s break that down:
 2. Convert the letter to its numeric equivalent, starting the count from 0 (like in an array). Numeric equivalent of `g` is `6`.
 3. Now we apply our encryption function:
 	1. `(5*6 + 8) = 38`
-	2. `38 mod 26 = **12**`
+	2. `38 mod 26 = 12`
 4. Now, we simply convert our encrypted numeric value back to a letter. In this case, the numeric value is `12`, which, when converted back to a letter, becomes `m`.
 5. Repeat for the rest of your message.
 
