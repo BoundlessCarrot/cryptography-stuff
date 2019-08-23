@@ -59,6 +59,8 @@ Where:
 
 NOTE: `mod` refers to the ‘modulus’ operator, which in many programming languages is represented by the percent sign (`%`). This operator works by returning the _remainder_ of a division operation rather than the quotient.
 
+NOTE 2: The keys must be co-prime because non-co-prime keys lead to encrypted text that can have multiple decrypted possibilities, which is obviously not desirable.
+
 In fact, you could define the Caesar cipher as an Affine cipher where a = 1, since a = 1 translates to a linear shift of letters and every number from 1 to 26 is co-prime with 1. 
 
 So, let’s take `github` as an example again. Using the Affine cipher, and keys 5 and 8, our encrypted message would be `mwzren`.
