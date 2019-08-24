@@ -9,7 +9,8 @@ This is a place where I want to try to code different encryption techniques. I'l
 
 ### Caesar cipher
 [Wikipedia][3] | 
-[Code][4]
+[Code][4] |
+[Try it online!](https://repl.it/@BoundlessCarrot/Caesar)
 
 The Caesar cipher is one of the oldest ciphers known to man, as well as one of the simplest and well known ciphers. It works by taking a key, that both the sender and the recipient know, and shifting each letter in your message by that key. This is known as a substitution cipher. Specifically, this is a monoalphabetic substitution cipher because we are only using one alphabet (26 letters) rather than possibly cycling the message through multiple alphabets.
 
@@ -44,7 +45,8 @@ As a note to come back to, it could be interesting to use the actual encryption 
 ---- 
 ### Affine cipher
 [Wikipedia][5] | 
-[Code][6]
+[Code][6] |
+[Try it online!](https://repl.it/@BoundlessCarrot/Affine)
 
 The Affine cipher is also a monoalphabetic substitution cipher, but a more generalized one. The cipher takes two keys, both of which must be co-prime (have no common dividers besides 1) and a message. It encrypts the message by taking the numeric value of each letter (0-25, not 1-26, at least for the English alphabet) and applying a short algebraic function to it:
 
