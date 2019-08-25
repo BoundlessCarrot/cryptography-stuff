@@ -139,6 +139,7 @@ Step-by-step:
 5. Add the character to the encrypted message string.
 
 Because this cipher doesn’t take a key and the encrypted message is simply the opposite values of each letter, we can use our encryption function as our decryption function, as it just reverses the effects of the first pass through the encryption function.
+
 ---- 
 
 [1]:	#vocabulary
