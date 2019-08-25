@@ -2,19 +2,28 @@
 This is a place where I want to try to code different encryption techniques. I'll start with substitution ciphers, and possibly end with a one-time pad or an Enigma emulator. Who knows?
 
 ## Table of Contents:
-  - [Caesar cipher][1]
-  - [Affine cipher][2]
+- [Vocabulary][1]
+- [Explanations][2]
+	  - [Caesar cipher][3]
+	  - [Affine cipher][4]
+
+## Vocabulary
+- [ASCII][5]: A system to represent characters in a way a computer can understand. More specifically, a system for encoding characters (letters, numbers, symbols) in decimal, binary, and hexadecimal numbers.
+	- [This is the ASCII table I reference][6]
+- [Substitution cipher][7]: A method of encryption where each character is substituted for another character, using either a key or a mathematical function. Comes in 2 varieties:
+	- [Monoalphabetic Substitution cipher][8]: Uses a single alphabet to encrypt a message. Examples include the Caesar cipher and ROT13. 
+	- [Polyalphabetic Substitution cipher][9]: Uses multiple alphabets to encrypt a message. Examples include the Vignère cipher and the Enigma machine.
 
 ## Explanations
 
 ### Caesar cipher
-[Wikipedia][3] | 
-[Code][4] |
-[Try it online!][7]
+[Wikipedia][10] | 
+[Code][11] |
+[Try it online!][12]
 
 The Caesar cipher is one of the oldest ciphers known to man, as well as one of the simplest and well known ciphers. It works by taking a key, that both the sender and the recipient know, and shifting each letter in your message by that key. This is known as a substitution cipher. Specifically, this is a monoalphabetic substitution cipher because we are only using one alphabet (26 letters) rather than possibly cycling the message through multiple alphabets.
 
-So, as an example, say we have the word `github` as our plaintext, and our key is 12. The resulting ciphertext would be `suftgn`.
+So, as an example, say we have the word `github` as our plaintext, and our key is 12. The resulting cipher-text would be `suftgn`.
 
 Let's break that down step-by-step:
   1. Take a letter, our first letter being `g`.
@@ -44,9 +53,9 @@ The decryption function is simply a brute force decryption, as the number of pos
 
 ---- 
 ### Affine cipher
-[Wikipedia][5] | 
-[Code][6] |
-[Try it online!][8]
+[Wikipedia][13] | 
+[Code][14] |
+[Try it online!][15]
 
 The Affine cipher is also a monoalphabetic substitution cipher, but a more generalized one. The cipher takes two keys, the first of which must be co-prime with the size of your alphabet (have no common dividers besides 1) and a message. It encrypts the message by taking the numeric value of each letter (0-25, not 1-26, at least for the English alphabet) and applying a short algebraic function to it:
 
@@ -101,11 +110,18 @@ D(x) = a^-1(x - b) mod m
 
 ---- 
 
-[1]:	#caesar-cipher
-[2]:	#affine-cipher
-[3]:	https://en.wikipedia.org/wiki/Caesar_cipher
-[4]:	https://github.com/BoundlessCarrot/cryptography-stuff/blob/master/caesar%20cipher.py
-[5]:	https://en.wikipedia.org/wiki/Affine_cipher
-[6]:	https://github.com/BoundlessCarrot/cryptography-stuff/blob/master/affine%20cipher.py
-[7]:  https://repl.it/@BoundlessCarrot/Caesar
-[8]:  https://repl.it/@BoundlessCarrot/Affine
+[1]:	#vocabulary
+[2]:	#explanations
+[3]:	#caesar-cipher
+[4]:	#affine-cipher
+[5]:	https://en.wikipedia.org/wiki/ASCII
+[6]:	http://www.asciitable.com
+[7]:	https://en.wikipedia.org/wiki/Substitution_cipher
+[8]:	https://en.wikipedia.org/wiki/Substitution_cipher#Simple_substitution
+[9]:	https://en.wikipedia.org/wiki/Polyalphabetic_cipher
+[10]:	https://en.wikipedia.org/wiki/Caesar_cipher
+[11]:	https://github.com/BoundlessCarrot/cryptography-stuff/blob/master/caesar%20cipher.py
+[12]:	https://repl.it/@BoundlessCarrot/Caesar
+[13]:	https://en.wikipedia.org/wiki/Affine_cipher
+[14]:	https://github.com/BoundlessCarrot/cryptography-stuff/blob/master/affine%20cipher.py
+[15]:	https://repl.it/@BoundlessCarrot/Affine
