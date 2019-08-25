@@ -126,7 +126,7 @@ Step-by-step:
 2. Get the letter’s opposite. `g`’s opposite is `t` (g is the 7th letter, so we take the 7th letter starting from z to get the encrypted letter).
 3. Repeat for the rest of the message.
 
-My program first gets a message (as a string) from the user. Then it finds each character’s alphabetical value (0-25), then subtracts that value from 122 to bring it back into ASCII range. for simplicity’s sake, the message is case-folded within the cipher and the cipher only returns lowercase letters
+My program first gets a message (as a string) from the user. Then it finds each character’s alphabetical value (0-25), then subtracts that value from 122 to bring it back into ASCII range. For simplicity’s sake, the message is case-folded within the cipher and the cipher only returns lowercase letters
 
 Step-by-step:
 1. Get the message from the user.
