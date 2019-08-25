@@ -48,6 +48,21 @@ def printer(message):
 		print("{} | {}".format(count, str(possibility)))
 		count += 1
 
+# Trying to do this in the style of the affine cipher
+#def smartCaesar(n, message):
+#	encryptedMessage = ''
+#	
+#	for letter in message:
+#		if letter.isalpha == True:
+#			x = ord(letter) - 97
+#			encryptedLetterVal = (x + n) % 26
+#			encryptedMessage += chr(encryptedLetterVal + 97)
+#			
+#		else:
+#			encryptedMessage += letter
+#		
+#	return encryptedMessage
+	
 if __name__ == '__main__':
 	message = input("Type your message: ")
 	key = int(input("Pick a key (must be less than or equal to 26): "))
@@ -56,5 +71,6 @@ if __name__ == '__main__':
 		key = int(input("Key is not valid, pick a new key: "))
 	
 	eMessage = caesar(key, message)
+#	eMessage = smartCaesar(key, message)
 	print("Encrypted message: " + str(eMessage))
 	decryptor(eMessage)
