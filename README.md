@@ -6,22 +6,23 @@ This is a place where I want to try to code different encryption techniques. I'l
 - [Explanations][2]
 	 - [Caesar cipher][3]
 	 - [Affine cipher][4]
+	- [Atbash cipher][5]
 
 ## Vocabulary
-- [ASCII][5]: A system to represent characters in a way a computer can understand. More specifically, a system for encoding characters (letters, numbers, symbols) in decimal, binary, and hexadecimal numbers.
-	- [This is the ASCII table I reference][6]
-- [Substitution cipher][7]: A method of encryption where each character is substituted for another character, using either a key or a mathematical function. Comes in 2 varieties:
-	- [Monoalphabetic Substitution cipher][8]: Uses a single alphabet to encrypt a message. Examples include the Caesar cipher and ROT13. 
-	- [Polyalphabetic Substitution cipher][9]: Uses multiple alphabets to encrypt a message. Examples include the Vignère cipher and the Enigma machine.
+- [ASCII][6]: A system to represent characters in a way a computer can understand. More specifically, a system for encoding characters (letters, numbers, symbols) in decimal, binary, and hexadecimal numbers.
+	- [This is the ASCII table I reference][7]
+- [Substitution cipher][8]: A method of encryption where each character is substituted for another character, using either a key or a mathematical function. Comes in 2 varieties:
+	- [Monoalphabetic Substitution cipher][9]: Uses a single alphabet to encrypt a message. Examples include the Caesar cipher and ROT13. 
+	- [Polyalphabetic Substitution cipher][10]: Uses multiple alphabets to encrypt a message. Examples include the Vignère cipher and the Enigma machine.
 
 ## Explanations
 
 ### Caesar cipher
-[Wikipedia][10] | 
-[Code][11] |
-[Try it online!][12]
+[Wikipedia][11] | 
+[Code][12] |
+[Try it online!][13]
 
-The Caesar cipher is one of the oldest ciphers known to man, as well as one of the simplest and well known ciphers. It works by taking a key, that both the sender and the recipient know, and shifting each letter in your message by that key. This is known as a substitution cipher. Specifically, this is a monoalphabetic substitution cipher because we are only using one alphabet (26 letters) rather than possibly cycling the message through multiple alphabets.
+The Caesar cipher is one of the oldest ciphers known to man, as well as one of the simplest and well known ciphers. It works by taking a key, that both the sender and the recipient know, and shifting each letter in your message by that key (a substitution cipher). 
 
 So, as an example, say we have the word `github` as our plaintext, and our key is 12. The resulting cipher-text would be `suftgn`.
 
@@ -53,9 +54,9 @@ The decryption function is simply a brute force decryption, as the number of pos
 
 ---- 
 ### Affine cipher
-[Wikipedia][13] | 
-[Code][14] |
-[Try it online!][15]
+[Wikipedia][14] | 
+[Code][15] |
+[Try it online!][16]
 
 The Affine cipher is also a monoalphabetic substitution cipher, but a more generalized one. The cipher takes two keys, the first of which must be co-prime with the size of your alphabet (have no common dividers besides 1) and a message. It encrypts the message by taking the numeric value of each letter (0-25, not 1-26, at least for the English alphabet) and applying a short algebraic function to it:
 
@@ -109,19 +110,53 @@ D(x) = a^-1(x - b) mod m
 <sub>Full explanation including the decryption function coming soon!</sub>
 
 ---- 
+### Atbash cipher
+[Wikipedia][17] | 
+[Code][18] | 
+[Try it online!][19]
+
+The Atbash cipher is a monoalphabetic substitution cipher that was originally used to encrypt the Hebrew alphabet, although it can be used to encrypt any alphabet with a standard order.
+
+The cipher works by taking a message and replacing each letter in the message with its equal in the alphabet’s reverse order. 
+
+So, let’s again take `github` as an example message. The resulting cipher-text would then be `trgsfy`.
+
+Step-by-step:
+1. Take a letter from the message. In this case our first letter is `g`.
+2. Get the letter’s opposite. `g`’s opposite is `t` (g is the 7th letter, so we take the 7th letter starting from z to get the encrypted letter).
+3. Repeat for the rest of the message.
+
+My program first gets a message (as a string) from the user. Then it finds each character’s alphabetical value (0-25), then subtracts that value from 122 to bring it back into ASCII range. for simplicity’s sake, the message is case-folded within the cipher and the cipher only returns lowercase letters
+
+Step-by-step:
+1. Get the message from the user.
+2. Initialize an empty string for the encrypted message.
+3. Cycle through the characters in the message. 
+4. If the character is a letter, continue. Otherwise, skip to step 5.
+	1. First we need to get our letter’s 0-25 value, initialized as letterValue. We do this by taking the ASCII value of each letter and subtracting 97 from it.
+	2. Then we need to get our reverse alphabet value. We do this by subtracting the letter value from 122. While you could go the extra step of subtracting letterValue from 26 and adding that to 97 to get the ASCII value of the letter, doing it this way gets our correct encrypted letter and brings us into ASCII range in one step, simplifying the process.
+	3. Convert the reverse alphabet value to a character.
+5. Add the character to the encrypted message string.
+
+Because this cipher doesn’t take a key and the encrypted message is simply the opposite values of each letter, we can use our encryption function as our decryption function, as it just reverses the effects of the first pass through the encryption function.
+---- 
 
 [1]:	#vocabulary
 [2]:	#explanations
 [3]:	#caesar-cipher
 [4]:	#affine-cipher
-[5]:	https://en.wikipedia.org/wiki/ASCII
-[6]:	http://www.asciitable.com
-[7]:	https://en.wikipedia.org/wiki/Substitution_cipher
-[8]:	https://en.wikipedia.org/wiki/Substitution_cipher#Simple_substitution
-[9]:	https://en.wikipedia.org/wiki/Polyalphabetic_cipher
-[10]:	https://en.wikipedia.org/wiki/Caesar_cipher
-[11]:	https://github.com/BoundlessCarrot/cryptography-stuff/blob/master/caesar%20cipher.py
-[12]:	https://repl.it/@BoundlessCarrot/Caesar
-[13]:	https://en.wikipedia.org/wiki/Affine_cipher
-[14]:	https://github.com/BoundlessCarrot/cryptography-stuff/blob/master/affine%20cipher.py
-[15]:	https://repl.it/@BoundlessCarrot/Affine
+[5]:	#atbash-cipher
+[6]:	https://en.wikipedia.org/wiki/ASCII
+[7]:	http://www.asciitable.com
+[8]:	https://en.wikipedia.org/wiki/Substitution_cipher
+[9]:	https://en.wikipedia.org/wiki/Substitution_cipher#Simple_substitution
+[10]:	https://en.wikipedia.org/wiki/Polyalphabetic_cipher
+[11]:	https://en.wikipedia.org/wiki/Caesar_cipher
+[12]:	https://github.com/BoundlessCarrot/cryptography-stuff/blob/master/caesar%20cipher.py
+[13]:	https://repl.it/@BoundlessCarrot/Caesar
+[14]:	https://en.wikipedia.org/wiki/Affine_cipher
+[15]:	https://github.com/BoundlessCarrot/cryptography-stuff/blob/master/affine%20cipher.py
+[16]:	https://repl.it/@BoundlessCarrot/Affine
+[17]:	https://en.wikipedia.org/wiki/Atbash
+[18]:	https://github.com/BoundlessCarrot/cryptography-stuff/blob/master/atbash%20cipher.py
+[19]:	https://repl.it/@BoundlessCarrot/Atbash
