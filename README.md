@@ -58,7 +58,7 @@ The decryption function is simply a brute force decryption, as the number of pos
 [Code][15] |
 [Try it online!][16]
 
-The Affine cipher is also a monoalphabetic substitution cipher, but a more generalized one. The cipher takes two keys, the first of which must be co-prime with the size of your alphabet (have no common dividers besides 1) and a message. It encrypts the message by taking the numeric value of each letter (0-25, not 1-26, at least for the English alphabet) and applying a short algebraic function to it:
+The Affine cipher is also a monoalphabetic substitution cipher, but a more generalized one. The cipher takes two keys, the first of which must be co-prime with the size of your alphabet (have no common divisors besides 1) and a message. It encrypts the message by taking the numeric value of each letter (0-25, not 1-26, at least for the English alphabet) and applying a short algebraic function to it:
 
 ```MATH
 E(x) = (ax + b) mod m
