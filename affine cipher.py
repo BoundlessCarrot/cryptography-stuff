@@ -18,11 +18,11 @@ def affine(a, b, message):
 
 if __name__ == '__main__':
 	message = input("Type your message: ")
-	key1 = int(input("Pick your 1st key (must be less than or equal to 26, must be co-prime): "))
-	key2 = int(input("Pick your 2nd key (must be less than or equal to 26, must be co-prime): "))
+	key1 = int(input("Pick your 1st key (must be less than or equal to 26, must be co-prime with 26): "))
+	key2 = int(input("Pick your 2nd key (must be less than or equal to 26): "))
 	
-	while coprime(key1, key2) != True:
-		print("Those keys weren't co-prime. Try again!")
+	while coprime(key1, 26) != True:
+		print("Those keys are invalid. Try again!")
 		key1 = int(input("Pick your 1st key (must be less than or equal to 26, must be co-prime): "))
 		key2 = int(input("Pick your 2nd key (must be less than or equal to 26, must be co-prime): "))
 		

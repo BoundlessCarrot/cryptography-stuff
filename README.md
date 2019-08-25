@@ -9,8 +9,8 @@ This is a place where I want to try to code different encryption techniques. I'l
 
 ### Caesar cipher
 [Wikipedia][3] | 
-[Code](https://github.com/BoundlessCarrot/cryptography-stuff/blob/master/caesar%20cipher.py) |
-[Try it online!](https://repl.it/@BoundlessCarrot/Caesar)
+[Code][4] |
+[Try it online!][7]
 
 The Caesar cipher is one of the oldest ciphers known to man, as well as one of the simplest and well known ciphers. It works by taking a key, that both the sender and the recipient know, and shifting each letter in your message by that key. This is known as a substitution cipher. Specifically, this is a monoalphabetic substitution cipher because we are only using one alphabet (26 letters) rather than possibly cycling the message through multiple alphabets.
 
@@ -40,15 +40,15 @@ Let's break that down as well, as it's a bit more of an involved process:
 
 The decryption function is simply a brute force decryption, as the number of possibilities is relatively small. The program cycles through every possible key (1 - 26) and outputs what might be the plaintext for each related key. 
 
-As a note to come back to, it could be interesting to use the actual encryption function as the decryption function by giving it the encrypted text and cycling through all possible keys. (This is kinda what the decryption function is already doing but within its own function)
+<sub>As a note to come back to, it could be interesting to use the actual encryption function as the decryption function by giving it the encrypted text and cycling through all possible keys. (This is kinda what the decryption function is already doing but within its own function)</sub>
 
 ---- 
 ### Affine cipher
 [Wikipedia][5] | 
 [Code][6] |
-[Try it online!](https://repl.it/@BoundlessCarrot/Affine)
+[Try it online!][8]
 
-The Affine cipher is also a monoalphabetic substitution cipher, but a more generalized one. The cipher takes two keys, both of which must be co-prime (have no common dividers besides 1) and a message. It encrypts the message by taking the numeric value of each letter (0-25, not 1-26, at least for the English alphabet) and applying a short algebraic function to it:
+The Affine cipher is also a monoalphabetic substitution cipher, but a more generalized one. The cipher takes two keys, the first of which must be co-prime with the size of your alphabet (have no common dividers besides 1) and a message. It encrypts the message by taking the numeric value of each letter (0-25, not 1-26, at least for the English alphabet) and applying a short algebraic function to it:
 
 ```MATH
 E(x) = (ax + b) mod m
@@ -58,13 +58,13 @@ Where:
 - _a_ = key #1
 - _b_ = key #2
 - _x_ = numeric value of the letter in question
-- _m_ = the size of the alphabet used. For the English alphabet, m = 26.
+- _m_ = the size of the alphabet used (for the English alphabet, m = 26).
 
 NOTE: `mod` refers to the ‘modulus’ operator, which in many programming languages is represented by the percent sign (`%`). This operator works by returning the _remainder_ of a division operation rather than the quotient.
 
-NOTE 2: The keys must be co-prime because non-co-prime keys lead to encrypted text that can have multiple decrypted possibilities, which is obviously not desirable.
+NOTE 2: _a_ and _m_ must be co-prime because non-co-prime values there lead to encrypted text that can have multiple decrypted possibilities, which is obviously not desirable.
 
-In fact, you could define the Caesar cipher as an Affine cipher where _a_ = 1, since _a_ = 1 translates to a linear shift of letters and every number from 1 to 26 is co-prime with 1. 
+In fact, you could define the Caesar cipher as an Affine cipher where _a_ = 1, since _a_ = 1 translates to a linear shift of letters.
 
 So, let’s take `github` as an example again. Using the Affine cipher, and keys 5 and 8, our encrypted message would be `mwzren`.
 
@@ -79,11 +79,11 @@ Let’s break that down:
 
 Again, as this is a monoalphabetic substitution cipher, it is very weak and is vulnerable to nearly all methods of forceful decryption such as frequency analysis, brute force, and even guessing. Mathematically, there are 12 numbers co-prime with 26 that are less than 26 (_a_ values) as well as 26 possible values for each value of _a_ (_b_ values). Therefore there are 312 `(12 * 26)` possible encryptions using the Affine cipher. However, this number also includes trivial solutions that the Caesar cipher could also produce (where `a = 1`). Without the trivial solutions, this number drops to 286 unique encryptions, which is very low and very vulnerable.
 
-My program takes 2 integers (the 2 keys) and a string (the message), checks if the keys are non-prime, and then encrypts using the encryption function after converting each letter to a number. It then converts each number to a character and adds it to an empty string initialized when we called the affine function. After converting the entire message it returns and prints the string. Again, for simplicity’s sake, this program keeps spaces and punctuation.
+My program takes 2 integers (the 2 keys) and a string (the message), checks if the first key is co-prime with _m_, and then encrypts using the encryption function after converting each letter to a number. It then converts each number to a character and adds it to an empty string initialized when we called the affine function. After converting the entire message it returns and prints the string. Again, for simplicity’s sake, this program keeps spaces and punctuation.
 
 Let’s break that down, because, as always, the code is much more involved than the actual cipher:
 1. Get the message and the keys.
-2. If the keys are co-prime, continue. If not get new keys from the user.
+2. If the _a_ (key1) is co-prime with _m_ (26), continue. If not get new keys from the user.
 3. Now, take a character from your message. If the character is a letter, continue. Otherwise, skip to step 4.
 	1. Convert the character to its ASCII value and subtract 97 from it to get its 0 - 25 value.
 	2. Apply the encryption function to the character value to get its encrypted character value.
@@ -97,13 +97,15 @@ The decryption function for this cipher isn’t done yet but it’s also a mathe
 D(x) = a^-1(x - b) mod m
 ```
 
-Full explanation including the decryption function coming soon!
+<sub>Full explanation including the decryption function coming soon!</sub>
 
 ---- 
 
 [1]:	#caesar-cipher
 [2]:	#affine-cipher
 [3]:	https://en.wikipedia.org/wiki/Caesar_cipher
-[4]:	https://github.com/BoundlessCarrot/cryptography-stuff/blob/master/simple%20caesar%20cipher.py
+[4]:	https://github.com/BoundlessCarrot/cryptography-stuff/blob/master/caesar%20cipher.py
 [5]:	https://en.wikipedia.org/wiki/Affine_cipher
 [6]:	https://github.com/BoundlessCarrot/cryptography-stuff/blob/master/affine%20cipher.py
+[7]:  https://repl.it/@BoundlessCarrot/Caesar
+[8]:  https://repl.it/@BoundlessCarrot/Affine
