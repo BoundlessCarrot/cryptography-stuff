@@ -4,8 +4,8 @@ This is a place where I want to try to code different encryption techniques. I'l
 ## Table of Contents:
 - [Vocabulary][1]
 - [Explanations][2]
-	  - [Caesar cipher][3]
-	  - [Affine cipher][4]
+	 - [Caesar cipher][3]
+	 - [Affine cipher][4]
 
 ## Vocabulary
 - [ASCII][5]: A system to represent characters in a way a computer can understand. More specifically, a system for encoding characters (letters, numbers, symbols) in decimal, binary, and hexadecimal numbers.
