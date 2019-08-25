@@ -23,8 +23,8 @@ if __name__ == '__main__':
 	
 	while coprime(key1, 26) != True:
 		print("Those keys are invalid. Try again!")
-		key1 = int(input("Pick your 1st key (must be less than or equal to 26, must be co-prime): "))
-		key2 = int(input("Pick your 2nd key (must be less than or equal to 26, must be co-prime): "))
+		key1 = int(input("Pick your 1st key (must be less than or equal to 26, must be co-prime with 26): "))
+		key2 = int(input("Pick your 2nd key (must be less than or equal to 26): "))
 		
 	eMessage = affine(key1, key2, message)
 	print("Encrypted message: " + eMessage)
